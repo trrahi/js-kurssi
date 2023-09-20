@@ -66,33 +66,71 @@
             <li>The last button should check Geolocation of the user, and output it to the console and to the page. Note: Some browsers might not allow you to do this. Try different browsers if you get errors.</li>
         </ol>
         <hr/>
-        <section id="mynton">testi</section>
+
         <script>
 
-        var clickMeNappi = document.getElementById("clickMe")
-        clickMeNappi.addEventListener("click", function youClickedMe() {
-            alert("klikkasit minua" + Date())
-        })
+            // 1.1 and 1.2
+            const CLICKME = document.querySelector("#clickMe")
+            CLICKME.addEventListener("click", function(){
+                var dateToAlert = new Date()
+                alert("You clicked me! " + dateToAlert.getFullYear() + "." + dateToAlert.getMonth() + "." + dateToAlert.getDay())
+            })
 
-        var showTableNappi = document.getElementById("showTableButton")
-        showTableNappi.addEventListener("click", function showTable(){
-            document.write(document.getElementById("example").outerHTML)
-        })
 
-        var geolokaatio = document.getElementById("geolokaatio")
-        geolokaatio.addEventListener("click", function getCoords(){
+            // 1.3
+            document.write(`        <table id="example" class="display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>$320,800</td>
+                </tr>
+                <tr>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>$170,750</td>
+                </tr>
+                <tr>
+                    <td>Ashton Cox</td>
+                    <td>Junior Technical Author</td>
+                    <td>$86,000</td>
+                </tr>
+                <tr>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>$433,060</td>
+                </tr>
+                <tr>
+                    <td>Airi Satou</td>
+                    <td>Accountant</td>
+                    <td>$162,700</td>
+                </tr>              
+            </tbody>
+        </table>`)
 
-        })
+        // 1.4
 
-        document.write("hoimaailma")
         
-
-    
-        
-        // function showTable() {
-        //     document.write("hoiiiii")
+        // function successCallback(position) {
+        //     console.log(position)
         // }
+        // function errorCallback(error) {
+        //     console.error(error)
+        // }
+
+        // navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+
+        
+        
         </script>
+    
 
 
 
@@ -116,15 +154,26 @@
         <hr/>
 
         <script>
-            
-        var toinenHarjoitush2 = document.getElementById("toinenHarjoitush2")
-        toinenHarjoitush2.addEventListener("mouseover", function(){
-            console.log("joku astui hiirelle")
-        })
-        
-        // toinenHarjoitush2.addEventListener("mouseleave", function(){
-        //     alert("byebyemnouse")
-        // })
+        // 2.1
+
+        const TOINENHARJOITUSH2 = document.querySelector("#toinenHarjoitush2")
+
+        function steppedOnMouse() {
+            console.log("Stepped on the mouse!")
+        }
+
+
+        TOINENHARJOITUSH2.addEventListener("mouseover", steppedOnMouse)
+
+
+
+
+        // 2.2
+        function notOnMouse() {
+            console.log("Byebye mouse!")
+        }
+
+        TOINENHARJOITUSH2.addEventListener("mouseout", notOnMouse)
         
         </script>
 
@@ -151,17 +200,64 @@
         <form id="formField">
             <textarea id="textdata"></textarea><br>
             <span id="charcount"></span>
-            <button>Send me</button>
+            <button id="send-me-button">Send me</button>
         </form>
+        <p>Keypress calculator: </p>
+        <p id="counter"></p>
         <hr/>
 
 
     <script>
-    var textArea = document.getElementById("textarea")
-    
-    textArea.addEventListener("click", function(){
-        document.write("moi")
-    })
+        // 3.1
+        const TEXTAREA = document.querySelector("#textdata")
+
+        var textarea = TEXTAREA
+
+        function addText() {
+            textarea.innerHTML = "Please fill the form with proper data"
+            textarea.style.backgroundColor = "lightblue"
+        }
+        textarea.addEventListener("focus", addText)
+
+
+
+
+        // 3.2
+        const COUNTER = document.querySelector("#counter")
+        var keyPressCounter = COUNTER
+
+        var textareaForPresses = TEXTAREA
+        var presses = 0
+        textareaForPresses.addEventListener("keydown", function() {
+            presses = presses +1
+            keyPressCounter.innerHTML = presses
+        })
+
+
+        
+
+
+
+        // 3.3
+        const SENDMEBUTTON = document.querySelector("#send-me-button")
+        var sendMeButton = SENDMEBUTTON
+        var textareaForSending = TEXTAREA
+
+        function isFormEmpty(e) {
+            e.preventDefault()
+            console.log(textareaForSending)
+            if (textareaForSending.innerHTML == "" || textareaForSending.innerHTML == "Form cannot be empty!" || textareaForSending.innerHTML == "Please fill the form with proper data") {
+                alert("Please fill the form with proper data") 
+            } else {
+                alert("Form sent!")
+            }
+        }
+        
+        sendMeButton.addEventListener("click", isFormEmpty)
+
+
+
+
 
     </script>
 
