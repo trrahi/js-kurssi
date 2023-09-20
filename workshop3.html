@@ -229,6 +229,7 @@
         var textareaForPresses = TEXTAREA
         var presses = 0
         textareaForPresses.addEventListener("keydown", function() {
+            textarea.innerHTML = ""
             presses = presses +1
             keyPressCounter.innerHTML = presses
         })
@@ -246,8 +247,8 @@
         function isFormEmpty(e) {
             e.preventDefault()
             console.log(textareaForSending)
-            if (textareaForSending.innerHTML == "" || textareaForSending.innerHTML == "Form cannot be empty!" || textareaForSending.innerHTML == "Please fill the form with proper data") {
-                alert("Please fill the form with proper data") 
+            if (textareaForSending.innerHTML == "") {
+                alert("Text field empty!") 
             } else {
                 alert("Form sent!")
             }
