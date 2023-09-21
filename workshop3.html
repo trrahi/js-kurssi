@@ -269,10 +269,34 @@
 
         <h2>Exercise 4</h2>
         <div id="coordinates"></div>
+        <p id="x-koordinaatti"></p>
+        <p id="y-koordinaatti"></p>
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
         <p> When the program is working, you can try outputting the text on the H2 element with an id "coords" the box</p> 
         <p>HINT: You need to use document.getElementById("coordinates").innerHTML to achieve this.</p>
+
+        <!-- 4.1 -->
+        <script>
+
+        const MOUSEBOX = document.querySelector("#coordinates")
+        mouseboxForCoords = MOUSEBOX 
+
+        const XCOORDTAG = document.querySelector("#x-koordinaatti")
+        const YCOORDTAG = document.querySelector("#y-koordinaatti")
+        xCoordTag = XCOORDTAG
+        yCoordTag = YCOORDTAG
+
+        
+
+        function mouseCoords(e) {
+            xCoordTag.innerHTML = "Hiiren X-koordinaatti: " + e.clientX
+            yCoordTag.innerHTML = "Hiiren Y-koordinaatti: " + e.clientY
+        }
+        
+        
+        mouseboxForCoords.addEventListener("mousemove", mouseCoords)
+
+        </script>
     </body>
 </html>
-
 
