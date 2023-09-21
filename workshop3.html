@@ -287,11 +287,14 @@
 
         
 
-        function mouseCoords(e) {
-            mouseboxForCoords.innerHTML = "Hiiren X-koordinaatti: " + e.clientX + "<br>" +  "Hiiren Y-koordinaatti: " + e.clientY
-        }
+        // function mouseCoords(e) {
+        //     mouseboxForCoords.innerHTML = "Hiiren X-koordinaatti: " + e.clientX + "<br>" +  "Hiiren Y-koordinaatti: " + e.clientY
+        // }
         
-        mouseboxForCoords.addEventListener("mousemove", mouseCoords)
+        // mouseboxForCoords.addEventListener("mousemove", mouseCoords)
+        
+        mouseboxForCoords.addEventListener("mousemove", (e) => mouseboxForCoords.innerHTML = "Hiiren X-koordinaatti: " + e.clientX + "<br>" +  "Hiiren Y-koordinaatti: " + e.clientY)
+
 
 
 
