@@ -264,7 +264,6 @@
 
 
 
-<p>testi</p>
 
 
         <h2>Exercise 4</h2>
@@ -279,22 +278,25 @@
         <script>
 
         const MOUSEBOX = document.querySelector("#coordinates")
-        mouseboxForCoords = MOUSEBOX 
+        var mouseboxForCoords = MOUSEBOX 
 
         const XCOORDTAG = document.querySelector("#x-koordinaatti")
         const YCOORDTAG = document.querySelector("#y-koordinaatti")
-        xCoordTag = XCOORDTAG
-        yCoordTag = YCOORDTAG
+        var xCoordTag = XCOORDTAG
+        var yCoordTag = YCOORDTAG
 
         
 
         function mouseCoords(e) {
-            xCoordTag.innerHTML = "Hiiren X-koordinaatti: " + e.clientX
-            yCoordTag.innerHTML = "Hiiren Y-koordinaatti: " + e.clientY
+            mouseboxForCoords.innerHTML = "Hiiren X-koordinaatti: " + e.clientX + "<br>" +  "Hiiren Y-koordinaatti: " + e.clientY
         }
         
-        
         mouseboxForCoords.addEventListener("mousemove", mouseCoords)
+
+
+
+
+
 
         </script>
     </body>
