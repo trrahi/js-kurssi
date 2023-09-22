@@ -86,7 +86,7 @@ table.display {
 .ws5 span {
   display: none;
 }
-.ws5 .error span {
+.ws5 .error span .block {
   display: block;
 }
 .ws6 div {
@@ -165,3 +165,10 @@ table.display {
   background-color: blue;
   font-size: 30px;
 }
+
+.hideElement {
+  display: none:
+}
+/* .suprise {
+  font-size: 20px;
+} */

@@ -33,12 +33,12 @@
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
 		<p>
 			<label>
-				<input onchange="hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
+				<input name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
 				Hide me 
 			</label>
 			<br>
 			<label>
-				<input onchange="show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
+				<input type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
 				Show me
 			</label>
 			<br>
@@ -200,11 +200,36 @@
 			})
 
 			// 2.1
+			const REDSQUARE = document.querySelector("#me")
+			const CHECKBOX1 = document.querySelectorAll("label input")[0]
 
-			
+
+			function addHideClass() {
+				REDSQUARE.classList = "hideElement"
+			}
+			CHECKBOX1.addEventListener("change", addHideClass)
+
 			// 2.2
+			const CHECKBOX2 = document.querySelectorAll("label input")[1]
+			function addRedBoxClass() {
+				REDSQUARE.classList = "red-box"
+			}
+			CHECKBOX2.addEventListener("change", addRedBoxClass)
+
+
 			// 2.3
-			
+			const SURPRISES = document.querySelectorAll(".surprise")
+			const CHECKBOX3 = document.querySelectorAll("label input")[2]
+
+			CHECKBOX3.addEventListener("change", changeFontTo20px)
+
+			function changeFontTo20px() {
+				SURPRISES.forEach((surprise) => {
+					surprise.style.fontSize = "20px"
+				})
+			}
+			console.log(SURPRISES)
+
 	
 	
 	
