@@ -157,3 +157,11 @@ table.display {
   height: auto;
   border: 0;
 }
+
+/* My CSS edits */
+
+.ws4 .exercise2 {
+  color:red;
+  background-color: blue;
+  font-size: 30px;
+}

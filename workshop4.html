@@ -14,9 +14,9 @@
 		<h2>Exercise 1: Basic  DOM Manipulation</h2>
 		<p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
 		<p>
-		  <button onclick="changeHeading();">Button 1</button>
-		  <button onclick="secondButton">Button 2</button>
-		  <button onclick="">Button 3</button>
+		  <button>Button 1</button>
+		  <button>Button 2</button>
+		  <button>Button 3</button>
 		</p>
 
 		<ul>
@@ -26,6 +26,8 @@
 			<br>
 			<strong id="lorem"><em>&quot;Lorem ipsum</em></strong><em> dolor sit amet, consectetuer   adipiscing elit. Sed posuere interdum sem. Quisque ligula eros   ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam   vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget   velit. &quot;</em></li>
 		</ul>
+
+
 		<hr/>
 		<h2>Exercise 2: DOM Traversing using ID's and classes</h2>
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
@@ -148,6 +150,67 @@
 			</li>
 			<li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li>
 		</ul>
+
+		<script>
+			// 1.1
+			const BUTTON1 = document.querySelectorAll("button")[0]
+			const HEADING1 = document.querySelectorAll("h1")[0]
+	
+			function changeHeading()  {
+				if (HEADING1.innerHTML != "Modified heading!") {
+					HEADING1.innerHTML = "Modified heading!"
+				} else {
+					HEADING1.innerHTML = "Workshop 4: DOM Scripting"
+				}
+			}
+	
+			BUTTON1.addEventListener("click", changeHeading)
+
+			// 1.2
+			const BUTTON2 = document.querySelectorAll("button")[1]
+			const EXERCISE2 = document.querySelectorAll("h2")[1]
+			// EXERCISE2.style.cssText = "color: red; background-color: blue; font-size: 20px"
+			BUTTON2.addEventListener("click", () => {
+				if (EXERCISE2.classList != "") {
+					EXERCISE2.classList = ""
+				} else {
+					EXERCISE2.classList = "ws4 exercise2"
+				}
+				
+			})
+			
+
+			// 1.3
+			const BUTTON3 = document.querySelectorAll("button")[2]
+			const PARAGRAPH4 = document.querySelectorAll("p")[3]
+
+			const LOREMIPSUMBODY = document.querySelectorAll("em")[1]
+			const LOREMIPSUMTITLE = document.querySelectorAll("strong")[1]
+
+			var rivinVaihto = document.createElement("br")
+			var rivinVaihto2 = document.createElement("br")
+
+
+
+			BUTTON3.addEventListener("click", () => {
+				PARAGRAPH4.appendChild(rivinVaihto)
+				PARAGRAPH4.appendChild(rivinVaihto2)
+				PARAGRAPH4.appendChild(LOREMIPSUMTITLE)
+				PARAGRAPH4.appendChild(LOREMIPSUMBODY)
+			})
+
+			// 2.1
+
+			
+			// 2.2
+			// 2.3
+			
+	
+	
+	
+	
+	
+			</script>
 	</body>
 </html>
 
