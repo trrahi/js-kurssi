@@ -65,9 +65,8 @@ div.border {
 .ws5 table,
 ws5.tr,
 ws5.td {
-  border: 1px solid gray;
+  border: 1px solid grey;
   width: 50%;
-  border-collapse: collapse;
   padding: 5px;
 }
 table.display {
@@ -167,8 +166,14 @@ table.display {
 }
 
 .hideElement {
-  display: none:
+  display: none;
 }
 /* .suprise {
   font-size: 20px;
 } */
+.carImageEffect {
+  border: 20px solid red;
+}
+#carimage {
+  left: 70%
+}

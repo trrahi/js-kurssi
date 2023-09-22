@@ -58,11 +58,11 @@
 		<h2>Exercise 3: Images and pulldowns</h2>
 			<ul>
 				<li>Write a JavaScript function, which will fire when the pulldown menu item is changed. Show the users choice using alert -box.</li>
-				<li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear</li>
 				<li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.
+				<li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear</li>
 			</ul>
 		  <p>Select a new car from the list.</p>
-		  <select name="mySelect" id="mySelect" onchange="">
+		  <select name="mySelect" id="mySelect">
 			<option value="BMW">BMW         
 			<option value="Audi">Audi
 			<option value="Mercedes">Mercedes
@@ -70,7 +70,7 @@
 		  </select>
 		  <br>
 		  <br>
-		<img alt="" onmouseover="" onmouseout="" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage"/>
+		<img alt="" src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym13JTIwY2FyfGVufDB8fDB8fHww&w=1000&q=80" width="400" id="carimage"/>
 		<hr/>
 		<h2>Exercise 4: Moving things around</h2>
 		<ul>
@@ -78,8 +78,8 @@
 			<p class="surprise">You can do neat things by editing CSS-rules via  JavaScript. See the examples in lecture slides. Then try these:</p>
 			<ol>
 			  <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px left and 500px down</li>
-			  <li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
-			  <li><button onclick="setInterval(function(){fadeOut();},250);">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
+			  <li><button onclick="doMove()">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
+			  <li><button onclick="fadeOut()">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
 			  <li><button onclick="remove()">Disappear! </button>Finally, write JavaScript which will remove the image from the page</li>
 			</ol>
 		  </li>
@@ -91,7 +91,7 @@
 		  <li>When your code is working, try reading the content to be added from a set of fields below the table.</li>
 		</ul>
 		<br>
-		<table id="data" class="display">
+		<table id="data" class="display ws3 table">
 			<thead>
 			  <tr>
 				<th>Name</th>
@@ -228,15 +228,142 @@
 					surprise.style.fontSize = "20px"
 				})
 			}
-			console.log(SURPRISES)
+
+			// 3.1
+
+			const DROPDOWNMENU = document.querySelector("select")
+
+
+
+			// 3.2
+			const CARIMAGE = document.querySelector("#carimage")
+
+			const CARS = {
+				bmw: "https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym13JTIwY2FyfGVufDB8fDB8fHww&w=1000&q=80",
+				mercedes: "https://www.shutterstock.com/shutterstock/photos/2108457428/display_1500/stock-photo-almaty-kazakhstan-jan-mercedes-benz-amg-cls-matic-studio-shots-on-black-background-2108457428.jpg",
+				volvo: "https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/heritagemodels/44_volvo_740_estate_large.jpg?h=1932&iar=0&w=4096",
+				audi: "https://audimediacenter-a.akamaihd.net/system/production/media/2418/images/a1a1bdcf8c0219c23cdff31aa9afa0c90aaca065/LM030011_blog.jpg?1581968475"
+				}
+
+			DROPDOWNMENU.addEventListener("change", () => {
+				console.log("You chose: " + DROPDOWNMENU.value)
+				const CHOSENCAR = DROPDOWNMENU.value.toLowerCase()
+				const CARSPROPERTY = CARS[CHOSENCAR]
+				CARIMAGE.src = CARSPROPERTY
+			})
+
+
+			// 3.3
+			CARIMAGE.addEventListener("mouseover", () => {
+				CARIMAGE.classList = "carImageEffect"
+			})
+
+			CARIMAGE.addEventListener("mouseout", () => {
+				CARIMAGE.classList = ""
+			})
+
+			// 4.1
+
+			// Tehtävän neljä napit
+			const BUTTON4Point1 = document.querySelectorAll("li button")[0]
+			const BUTTON4Point2 = document.querySelectorAll("li button")[1]
+			const BUTTON4Point3 = document.querySelectorAll("li button")[2]
+			const BUTTON4Point4 = document.querySelectorAll("li button")[3]
+
+			function changePosition() {
+				if (CARIMAGE.style.cssText === "") {
+				CARIMAGE.style.cssText = "left: 200px; top: 500px"
+				} else {
+					CARIMAGE.style.cssText = ""
+				}
+			}
+
+
+
+
+
+				
+				
+				
+			
+			// 4.2
+			let currentPosition = 0
+			const TARGETPOSITION = visualViewport.width - (CARIMAGE.clientWidth/0.9)
+
+		
+			function doMove() {
+					if (currentPosition < TARGETPOSITION) {
+					currentPosition = currentPosition + 1
+					CARIMAGE.style.left = currentPosition + "px"
+					setTimeout(doMove, 1)
+					}
+				}
+
+
+
+			// 4.3
+			var CARIMAGEopacity = 1
+			function fadeOut() {
+				CARIMAGE.style.cssText = `opacity: ${CARIMAGEopacity}`
+				CARIMAGEopacity = CARIMAGEopacity - 0.05
+				setTimeout(fadeOut, 50)
+			}
+
+
+
+
+
+
+
+			
+			// 4.4
+			function remove() {
+			CARIMAGE.classList = "hideElement"
+			}
+
+			// 5.1
+
+			const TABLE1 = document.querySelectorAll("table")[0]
+			const TABLEBODY = TABLE1.querySelector("tbody")
+
+
+
+			function addRow() {
+				var uusiRivi = document.createElement("tr")
+				TABLEBODY.appendChild(uusiRivi)
+
+				var uusiTd1 = document.createElement("td")
+				uusiTd1.textContent = textfield1.value
+				var uusiTd2 = document.createElement("td")
+
+				var uusiTd3 = document.createElement("td")
+
+				uusiRivi.appendChild(uusiTd1)
+				uusiRivi.appendChild(uusiTd2)
+				uusiRivi.appendChild(uusiTd3)
+			}
+			
+			
+			// 5.2
+			
+
+			const INSERTROWBUTTON = document.querySelector("#Insert")
+			INSERTROWBUTTON.addEventListener("click", addRow)
+
+			const TEXTFIELD1 = document.querySelector("#textfield1")
+			TEXTFIELD1.addEventListener("click", () => {
+				var vesipullo = TEXTFIELD1.value
+				TEXTFIELD1.textContent = vesipullo
+			})
+
+
 
 	
-	
-	
-	
-	
-			</script>
-	</body>
-</html>
+		
+		
+		
+				</script>
+		</body>
+	</html>
 
 
