@@ -10,18 +10,19 @@ everySumbitButton.forEach((item) => {
 
 // Exercise 1
 const sendButton = document.querySelectorAll("#form1 input")[1]
-const emailField = document.querySelectorAll("#form1 input")[0]
-const commentField = document.querySelector("#form1 textarea")
-const emailContainer = document.querySelector("div.no-border")
-const commentContainer = document.querySelectorAll("div.no-border")[1]
+
 
 sendButton.addEventListener("click", displayInputs)
 
 function displayInputs(event) {
-    let emailFieldValue = emailField.value
-    let commentFieldValue = commentField.value
-    wrongComment = false
-    wrongEmail = false
+        const emailField = document.querySelectorAll("#form1 input")[0]
+        const commentField = document.querySelector("#form1 textarea")
+        const emailContainer = document.querySelector("div.no-border")
+        const commentContainer = document.querySelectorAll("div.no-border")[1]
+        let emailFieldValue = emailField.value
+        let commentFieldValue = commentField.value
+        wrongComment = false
+        wrongEmail = false
 
 
     if (emailFieldValue.length < 6 || emailFieldValue.length > 15 || !(emailFieldValue.includes("@"))) {
@@ -47,26 +48,79 @@ function displayInputs(event) {
     }
 }
 
-// 1.2
 
 
 
 
 
-
-
-
-// Make alert function 
-function makeAlert(text) {
-    alert(text)
-}
-
-// Prevent default submit button default behaviour
 
 
 // Exercise 2
 
+// Membership levels defined
+const membershipLevel = document.querySelector("select")
+const basic = membershipLevel.children[0].value
+const premium = membershipLevel.children[1].value
+const gold = membershipLevel.children[2].value
+const platinum = membershipLevel.children[3].value
+const saunaSopimus = membershipLevel.children[4].value
+// Memberships as object
+const membershipObject = {
+    basic: 10,
+    premium: 15,
+    gold: 20,
+    platinum: 25,
+    saunasopimus: 5
+}
+// Create and hide discount text
+const discountText = document.createElement("p")
+discountText.textContent ="You qualify for 20% discount!"
+const theForm = document.querySelector("#theForm")
+theForm.insertAdjacentElement("beforeend", discountText)
+discountText.style.display = "none"
 
+// Special congrats for +5yr members
+const fiveYearText = document.createElement("p")
+fiveYearText.textContent = "Wow, thanks a lot! here's a fiver"
+theForm.insertAdjacentElement("beforeend", fiveYearText)
+fiveYearText.style.display = "none"
+
+
+// input fields defined
+const yearsField = document.querySelector("#years")
+const membershipSubmit = document.querySelectorAll("input[type='submit']")[1]
+const costField = document.querySelector("#cost")
+
+// Submit event listener
+membershipSubmit.addEventListener("click", calculateMembershipCost)
+function calculateMembershipCost(event) {
+    if (yearsField.value >= 5) {
+        costField.value = ((membershipObject[membershipLevel.value] * yearsField.value)*0.8)-5
+    } else if (yearsField.value >= 2) {
+        costField.value = ((membershipObject[membershipLevel.value] * yearsField.value)*0.8)
+    } else {
+        costField.value = (membershipObject[membershipLevel.value] * yearsField.value)
+    }
+
+}
+// Discount texts event listeners
+yearsField.addEventListener("input", showDiscountStatus)
+function showDiscountStatus(event) {
+    if (yearsField.value == 2) {
+        discountText.style.display = "block"
+    }
+    if (yearsField.value < 2) {
+        discountText.style.display = "none"
+    }
+    if (yearsField.value >= 5) {
+        fiveYearText.style.display = "block"
+    }
+    if (yearsField.value < 5) {
+        fiveYearText.style.display = "none"
+    }
+}
+
+// console.log(membershipLevel.children[0].value);
 
 
 

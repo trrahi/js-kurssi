@@ -6,18 +6,20 @@
 
 // Exercise: 3
 function calculate() {
-    'use strict';
 
     // For storing the order total:
     var total;
 
     // Get references to the form values:
-    var quantity = document.getElementById('quantity').value ; // add value
+    var quantity = parseInt(document.getElementById('quantity').value); // add value
 
-    var price =  document.getElementById('price').value ;
-    var tax =  document.getElementById('tax').value ; // add value
-    var discount =  document.getElementById('discount').value ; //add value
-	var shipping = document.getElementById('shipping').value; // add shipping
+    var price =  parseFloat(document.getElementById('price').value)
+    var tax =  parseFloat(document.getElementById('tax').value) ; // add value
+    var discount =  parseFloat(document.getElementById('discount').value) ; //add value
+	var shipping = parseFloat(document.getElementById('shipping').value); // add shipping
+
+
+    console.log(document.querySelector("#quantity").value);
 
     // Add validation here later!
 
@@ -49,29 +51,9 @@ function calculate() {
     // Display the total:
     document.getElementById('total').value = total;
 
-    // Return false to prevent submission:
-    return false;
 
 } // End of calculate() function.
 
-// Function called when the window has been loaded.
-// Function needs to add an event listener to the form.
-// Exercise: 2 using eventListener
-function init() {
-    'use strict';
+const bookOrderSubmit = document.querySelectorAll("input[type='submit']")[2]
 
-    // Add an event listener to the form:
-   
-    var theForm = document.getElementById('theForm');
-    theForm.addEventListener("submit",function(e){
-        if(!calculateMembership()){
-            // Prevent to upload the page 
-            e.preventDefault();
-        }
-    });
-}
-
-// End of init() function.
-
-// Assign an event listener to the window's load event:
-window.onload = init;
+bookOrderSubmit.addEventListener("click", calculate)

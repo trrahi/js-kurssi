@@ -51,6 +51,7 @@
                         <option value="premium">Premium - $15.00</option>
                         <option value="gold">Gold - $20.00</option>
                         <option value="platinum">Platinum - $25.00</option>
+                        <option value="saunasopimus"> saunasopimus 5 egee</option>
                     </select>
                 </div>
                 <div>
@@ -82,7 +83,7 @@
             </div>
             <div>
                 <label for="price">Price Per Unit</label>
-                <input type="text" name="price" id="price" value="1.00" required>
+                <input type="text" name="price" id="price" value="" required>
             </div>
             <div>
                 <label for="tax">VAT (%)</label>
@@ -93,11 +94,15 @@
                 <input type="text" name="discount" id="discount" value="0.00" required>
             </div>
             <div>
+                <label for="shipping">Shipping</label>
+                <input type="text" name="shipping" id="shipping" value="0.00" required>
+            </div>
+            <div>
                 <label for="total">Total</label>
                 <input type="text" name="total" id="total" value="0.00">
             </div>
             <div>
-                <input type="submit" value="Calculate" id="submit-calculate" onClick="calculate()">
+                <input type="submit" id="submit-calculate">
             </div>
         </fieldset>
 
@@ -109,6 +114,7 @@
                 <p data-line="41">After choosing the box, the user is shown an   input field which asks detailed information regarding on the selected   contact method.</p>
           </li>
         </ul>
+        <script src="js/shopping.js"></script>
         <script src="js/workshops.js"></script>
     </body>
 </html>
