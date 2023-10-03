@@ -9,13 +9,13 @@ everySumbitButton.forEach((item) => {
 
 
 // Exercise 1
-const sendButton = document.querySelectorAll("#form1 input")[1]
+const sendButton = document.querySelector("#send-contact-form")
 
 
 sendButton.addEventListener("click", displayInputs)
 
 function displayInputs(event) {
-        const emailField = document.querySelectorAll("#form1 input")[0]
+        const emailField = document.querySelector("#email-field")
         const commentField = document.querySelector("#form1 textarea")
         const emailContainer = document.querySelector("div.no-border")
         const commentContainer = document.querySelectorAll("div.no-border")[1]
@@ -49,6 +49,32 @@ function displayInputs(event) {
 }
 
 
+
+// Adding extra stuff, exercise 4
+const phoneCheckbox =  document.querySelector("#contact-group-option2")
+const phoneFieldLabel = document.querySelector("#phone-field-label")
+const phoneField = document.querySelector("#phone-field")
+
+phoneCheckbox.addEventListener("input", showContactField)
+document.querySelector("#contact-group-option1").addEventListener("change", hideContactField)
+
+
+// checks if the radio is checked
+
+function showContactField(event) {
+    let currentCheckStatus = event.target.checked
+    if (currentCheckStatus) {
+
+        phoneFieldLabel.removeAttribute("hidden")
+        phoneField.removeAttribute("hidden")
+    }}
+
+function hideContactField(event) {
+    if (event.target.checked) {
+        phoneFieldLabel.setAttribute("hidden", "true")
+        phoneField.setAttribute("hidden", "true")
+    }
+}
 
 
 
@@ -127,7 +153,7 @@ function showDiscountStatus(event) {
 
 // Exercise 3
 
-
+// in the shopping.js file
 
 
 

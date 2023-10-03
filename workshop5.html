@@ -20,7 +20,7 @@
             <div class="no-border">
                 <label>Email address:
                     <br>
-                    <input type="text" name="email">
+                    <input type="text" name="email" id="email-field">
                 </label>
             </div>
             <div class="no-border">
@@ -29,8 +29,28 @@
                 </label>
                 <textarea name="comment"></textarea>
             </div>
+            <p>How would you like us to contact you?</p>
+            <div id="contact-method">
+                <!-- Email checkbox -->
+                <label for="email-checkbox">Email:</label>
+                <input type="radio" name="contact-group" id="contact-group-option1" value="option1" checked>
+                <br>
+                <!-- Phone checkbox  -->
+                <label for="call">Call me:</label>
+                <input type="radio" name="contact-group" id="contact-group-option2" value="option2">
+                <br>
+
+                <!-- Hidden form -->
+                <label for="phone" id="phone-field-label" hidden>Phone number:</label>
+                <br>
+                <input type="text" name="phone" id="phone-field" hidden>
+
+                <!-- <label for="sms">Text me:</label>
+                <input type="radio" name="contact-group" id="contact-group-option3" value="option3"> -->
+            </div>
+            
             <br>
-            <input type="submit" value="Send">
+            <input type="submit" value="Send" id="send-contact-form">
         </form>
  
         <hr/>
