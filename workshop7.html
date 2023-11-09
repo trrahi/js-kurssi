@@ -20,7 +20,7 @@
 		<p>Write a function called parseData(), which will output the quote and author tags from XML when button is clicked.
 		Hint: Use document.getElementsByTagName() function. See PowerPoint for reference.</p>
 
-		<input type="button" name="Fetch" id="Fetch" value="Button" onclick="parseData()">
+		<input type="button" name="Fetch" id="Fetch" class="ex1-button" value="Button" onclick="parseData()">
 		<pre>
 			<!-- THIS IS HERE ONLY FOR DISPLAYing THE STRUCTURE OF THE XML DATA IN THE BROWSER -->
 			&lt;quotes&gt;
@@ -37,17 +37,25 @@
 
 			<!-- THIS IS THE START OF XML DATA -->
 		</pre>
-		<quotes>
-			<quote>I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.</quote>
-			<length>124</length>
-			<author>George Carlin</author>
-		</quotes>
-		<quotes>
-			<quote>The biggest problem with every art is by the use of appearance to create a loftier reality. </quote>
-			<author>Johann Wolfgang von Goethe</author>
-		</quotes>
+			<quotes>
+				<quote>I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.</quote>
+				<length>124</length>
+				<author>George Carlin</author>
+			</quotes>
+			<quotes>
+				<quote>The biggest problem with every art is by the use of appearance to create a loftier reality. </quote>
+				<author>Johann Wolfgang von Goethe</author>
+			</quotes>
 		<!-- THIS IS THE END  OF XML DATA -->
+
+
+		
+
+
+		
+		
 		<hr/>
+		<!-- EXERCISE 2 EXERCISE 2  EXERCISE 2  EXERCISE 2 EXERCISE 2 EXERCISE 2 EXERCISE 2  -->
 		<h2>Exercise 2: AJAX call to an XML file </h2>
 		<p>Create an AJAX script, which will load the famous-quotes.xml file from the server: <a href="http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml" target="_blank">http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml</a> and inject the raw contents of the file to a div below (id="quotes"). Here's another alternative: <a href="http://quotes.rest/qod.xml" target="_blank">http://quotes.rest/qod.xml</a>. </p>
 		<p>NOTE: The raw XML data looks weird on the browser. You can use developer tools to study the contents by inspecting the DIV.</p>
@@ -79,6 +87,7 @@
 		<div id="quotes"></div>
 		<p>&nbsp;</p>
 		<hr/>
+		<!-- EXERCISE 3 EXERCISE 3 EXERCISE 3 EXERCISE 3 EXERCISE 3 EXERCISE 3 EXERCISE 3  -->
 		<h2>Exercise 3: Parsing the XML</h2>
 		<p>Continue working from exercise 2. Once you have injected the results, use JavaScript to parse the XML/JSON-file and output the file contents in a nice HTML-table below. Add some styles to the table.</p>
 		<p>
@@ -105,6 +114,7 @@
 		<p><br>
 		</p>
 		<hr/>
+		<!-- EXERCISE 4 EXERCISE 4 EXERCISE 4 EXERCISE 4 EXERCISE 4 EXERCISE 4 EXERCISE 4  -->
 		<h2>Exercise   4: AJAX call to a live newsfeed</h2>
 		<p>Next try fetching data from a web service. Use either Yahoo news feed  <a href="https://meijastiina.github.io/news_rss_topstories.xml" target="_blank">https://meijastiina.github.io/news_rss_topstories.xml</a> (downloaded from <a href="https://news.yahoo.com/rss/topstories" target="_blank">https://news.yahoo.com/rss/topstories</a>, security restriction do not allow sending AJAX calls to Yahoo) or a Finnish one (<a href="http://www.iltalehti.fi/rss/uutiset.xml" target="_blank">http://www.iltalehti.fi/rss/uutiset.xml</a>).</p>
 		<p>Parse the results and display on page below as a list. You can add link to the original news item as well.</p>
@@ -116,6 +126,9 @@
 		<input type="button" name="Fetch3" id="Fetch3b" value="Load YAHOO newsfeed" onclick="loadAndParseNews('https://www.yahoo.com/news/rss/')">
 		<input type="button" name="Fetch3" id="Fetch3c" value="Load Iltalehti Newsfeed" onclick="loadAndParseNews('http://www.iltalehti.fi/rss/uutiset.xml')">
 		<div id="newsfeed">
+			<ul>
+			</ul>
 		</div>
 	</body>
+	<script src="js/ws7.js"></script>
 </html>
